@@ -1,0 +1,5 @@
+{
+  "minEvCents": 2,
+  "highPriceMinConfidence": 0.92,
+  "maxSpendCents": 70
+}

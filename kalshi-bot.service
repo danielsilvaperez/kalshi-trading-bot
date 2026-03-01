@@ -1,0 +1,25 @@
+[Unit]
+Description=Kalshi BTC Volatility Scalper v13
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=danny
+WorkingDirectory=/home/danny/.openclaw/workspace/trading-core
+ExecStart=/home/linuxbrew/.linuxbrew/bin/node dist/swing.js
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=kalshi-bot
+
+# Safety
+TimeoutStopSec=10
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
