@@ -1,7 +1,7 @@
 #!/bin/bash
 # Watchdog - ensures scalper runs 24/7
 
-cd /home/danny/.openclaw/workspace/trading-core
+cd "$(dirname "$0")/.."
 
 # Check if running
 if ! pgrep -f "node dist/scalper.js" > /dev/null; then

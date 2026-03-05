@@ -8,7 +8,7 @@ const { readFileSync, existsSync } = require('fs');
 const { execSync } = require('child_process');
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID || 'TELEGRAM_CHAT_ID_PLACEHOLDER';
+const CHAT_ID = process.env.TELEGRAM_CHAT_ID || '';
 const LOG_PATH = process.env.LOG_PATH || './logs/trading-15m.jsonl';
 const LAST_POS_PATH = './tmp/.telegram-last-pos';
 
