@@ -1,8 +1,14 @@
+require('dotenv').config();
 const crypto = require('crypto');
 const https = require('https');
 
-const keyId = 'KALSHI_KEY_ID_PLACEHOLDER';
-const privateKey = `PRIVATE_KEY_REDACTED`;
+const keyId = process.env.KALSHI_KEY_ID;
+const privateKey = (process.env.KALSHI_PRIVATE_KEY_PEM || '').replace(/\\n/g, '\n');
+
+if (!keyId || !privateKey) {
+  console.error('Missing required env vars: KALSHI_KEY_ID and KALSHI_PRIVATE_KEY_PEM');
+  process.exit(1);
+}
 
 async function req(path) {
   return new Promise((resolve, reject) => {

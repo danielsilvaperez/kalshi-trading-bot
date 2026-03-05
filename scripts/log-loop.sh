@@ -2,9 +2,10 @@
 # Log Forwarder Loop — runs forever, checks logs every 60s, no AI tokens
 # FIXED: Added MAX_HISTORY limit to prevent spam on restart
 
-LOG_PATH="/home/danny/.openclaw/workspace/trading-core/logs/trading-15m.jsonl"
-LAST_POS_FILE="/home/danny/.openclaw/workspace/trading-core/tmp/.telegram-last-pos"
-CHAT_ID="TELEGRAM_CHAT_ID_PLACEHOLDER"
+SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+LOG_PATH="${LOG_PATH:-$SCRIPT_DIR/logs/trading-15m.jsonl}"
+LAST_POS_FILE="${LAST_POS_FILE:-$SCRIPT_DIR/tmp/.telegram-last-pos}"
+CHAT_ID="${TELEGRAM_CHAT_ID:-}"
 MAX_HISTORY=5  # Only send last 5 entries max on startup
 
 # Get bot token from env
@@ -12,6 +13,11 @@ BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-}"
 
 if [ -z "$BOT_TOKEN" ]; then
   echo "TELEGRAM_BOT_TOKEN not set"
+  exit 1
+fi
+
+if [ -z "$CHAT_ID" ]; then
+  echo "TELEGRAM_CHAT_ID not set"
   exit 1
 fi
 

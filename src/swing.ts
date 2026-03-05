@@ -76,7 +76,7 @@ const CONFIG = {
   
   // Telegram
   TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN || '',
-  TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID || 'TELEGRAM_CHAT_ID_PLACEHOLDER',
+  TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID || '',
   
   // Files
   STATE_FILE: './tmp/swing-state.json',

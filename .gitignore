@@ -2,6 +2,7 @@ node_modules/
 dist/
 .env
 .env.local
+.env.*.local
 logs/
 tmp/
 datasets/
@@ -9,3 +10,8 @@ datasets/
 *.lock
 .DS_Store
 coverage/
+# Never commit private keys or credential files
+*.pem
+*.key
+*.p12
+*.pfx

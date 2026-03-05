@@ -18,7 +18,7 @@ const KALSHI_API_BASE = 'https://api.elections.kalshi.com';
 const KEY_ID = process.env.KALSHI_KEY_ID;
 const PEM = process.env.KALSHI_PRIVATE_KEY_PEM?.replace(/\\n/g, '\n');
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT = process.env.TELEGRAM_CHAT_ID || 'TELEGRAM_CHAT_ID_PLACEHOLDER';
+const TELEGRAM_CHAT = process.env.TELEGRAM_CHAT_ID || '';
 
 const EMERGENCY_MINS = 3;
 const BOT_CHECK_INTERVAL = 30000; // Check bot every 30s
@@ -81,7 +81,7 @@ async function restartBot() {
   console.log(`[${new Date().toISOString()}] Restarting bot...`);
   try {
     await execAsync('pkill -f "dist/swing.js" 2>/dev/null; sleep 2');
-    await execAsync('cd /home/danny/.openclaw/workspace/trading-core && nohup node dist/swing.js > /dev/null 2>&1 &');
+    await execAsync(`cd ${process.cwd()} && nohup node dist/swing.js > /dev/null 2>&1 &`);
     await notify('🔄 Bot was DOWN - restarted automatically', true);
     console.log(`[${new Date().toISOString()}] Bot restarted`);
   } catch (e) {
