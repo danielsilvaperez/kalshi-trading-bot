@@ -1,0 +1,20 @@
+[Unit]
+Description=Kalshi BTC 15min Scalper
+After=network.target
+
+[Service]
+Type=simple
+User=danny
+WorkingDirectory=/home/danny/.openclaw/workspace/trading-core
+Environment=NODE_ENV=production
+EnvironmentFile=/home/danny/.openclaw/workspace/trading-core/.env
+ExecStart=/usr/bin/node dist/scalper.js
+Restart=always
+RestartSec=5
+StartLimitInterval=60
+StartLimitBurst=3
+StandardOutput=append:/home/danny/.openclaw/workspace/trading-core/logs/scalper.log
+StandardError=append:/home/danny/.openclaw/workspace/trading-core/logs/scalper.log
+
+[Install]
+WantedBy=multi-user.target

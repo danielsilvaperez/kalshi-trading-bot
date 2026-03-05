@@ -1,0 +1,40 @@
+{
+  "tree": {
+    "feature": "timeToExpiry",
+    "threshold": -6818394.925000001,
+    "left": {
+      "prediction": 0,
+      "confidence": 0.9411764705882353
+    },
+    "right": {
+      "feature": "timeToExpiry",
+      "threshold": -6294228.366666667,
+      "left": {
+        "feature": "timeToExpiry",
+        "threshold": -6818394.9,
+        "left": {
+          "prediction": 1,
+          "confidence": 1
+        },
+        "right": {
+          "feature": "timeToExpiry",
+          "threshold": -6818391.733333333,
+          "left": {
+            "prediction": 0,
+            "confidence": 1
+          },
+          "right": {
+            "prediction": 0,
+            "confidence": 0.675
+          }
+        }
+      },
+      "right": {
+        "prediction": 0,
+        "confidence": 1
+      }
+    }
+  },
+  "trainedAt": "2026-02-14T14:11:54.240Z",
+  "trades": 67
+}
