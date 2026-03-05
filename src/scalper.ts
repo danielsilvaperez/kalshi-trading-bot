@@ -66,7 +66,7 @@ const CONFIG = {
   
   // Telegram
   TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN || '',
-  TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID || '8208882081',
+  TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID || '',
   
   // Files
   STATE_FILE: './tmp/scalper-state.json',

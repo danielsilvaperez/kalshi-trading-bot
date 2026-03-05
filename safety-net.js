@@ -12,7 +12,7 @@ const KALSHI_API_BASE = 'https://api.elections.kalshi.com';
 const KEY_ID = process.env.KALSHI_KEY_ID;
 const PEM = process.env.KALSHI_PRIVATE_KEY_PEM?.replace(/\\n/g, '\n');
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT = process.env.TELEGRAM_CHAT_ID || '8208882081';
+const TELEGRAM_CHAT = process.env.TELEGRAM_CHAT_ID || '';
 
 const EMERGENCY_MINS = 3; // Exit if market expires in < 3 mins
 
